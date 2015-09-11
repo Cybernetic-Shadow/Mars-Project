@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+project.ext.slf4japiVersion = "+"
+project.ext.slf4jlogVersion = "+"
+
+dependencies {
+    compile "org.slf4j:slf4j-api:${slf4japiVersion}"
+    compile "org.slf4j:slf4j-simple:${slf4jlogVersion}"
+}
+
+jar {
+	baseName = 'Mars-Project'
+	version = '0.0.0'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.6'
+}
